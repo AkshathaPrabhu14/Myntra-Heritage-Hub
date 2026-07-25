@@ -150,25 +150,10 @@ const AdminEditProduct = () => {
     setUploading(true);
     setError('');
     try {
-      const token = localStorage.getItem('token');
-      const res = await fetch('http://localhost:5000/api/upload', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        },
-        body: data
+      const res = await api.post('/upload', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
       });
-
-      if (!res.ok) {
-        let errMessage = 'Upload failed with status ' + res.status;
-        try {
-          const errData = await res.json();
-          errMessage = errData.message || errMessage;
-        } catch (e) {}
-        throw new Error(errMessage);
-      }
-
-      const result = await res.json();
+      const result = res.data;
 
       if (result.success && result.data.length > 0) {
         const uploadedUrls = result.data;

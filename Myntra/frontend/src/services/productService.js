@@ -1,7 +1,10 @@
 import api from './api';
 
 export const getBackendBaseUrl = () => {
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+  const defaultUrl = import.meta.env.MODE === 'production' 
+    ? 'https://myntra-heritage-hub.onrender.com/api'
+    : 'http://localhost:5000/api';
+  const apiUrl = import.meta.env.VITE_API_URL || defaultUrl;
   return apiUrl.replace(/\/api\/?$/, '');
 };
 
@@ -49,18 +52,12 @@ export const uploadImages = async (files) => {
   const formData = new FormData();
   files.forEach((file) => formData.append('images', file));
   
-  const token = localStorage.getItem('token');
-  const res = await fetch('http://localhost:5000/api/upload', {
-    method: 'POST',
+  const response = await api.post('/upload', formData, {
     headers: {
-      'Authorization': `Bearer ${token}`
+      'Content-Type': 'multipart/form-data',
     },
-    body: formData
   });
-  
-  if (!res.ok) throw new Error('Upload failed');
-  const payload = await res.json();
-  return { data: payload };
+  return { data: response.data };
 };
 
 export const PRODUCT_CATEGORIES = [
