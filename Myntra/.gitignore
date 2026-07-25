@@ -1,0 +1,69 @@
+# ==========================================
+# Dependencies
+# ==========================================
+node_modules/
+**/node_modules/
+.pnpm-store/
+
+# ==========================================
+# Environment & Secrets (CRITICAL FOR DEPLOYMENT)
+# ==========================================
+.env
+.env.*
+*.env
+!.env.example
+!.env.template
+
+# ==========================================
+# Build & Output Folders (Vercel/Render build output)
+# ==========================================
+dist/
+build/
+.next/
+out/
+bin/
+
+# ==========================================
+# Logs & Debug Output
+# ==========================================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# File Uploads & Local Assets
+# ==========================================
+uploads/
+**/uploads/
+backend/uploads/
+
+# ==========================================
+# System & OS Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# IDE & Editor Settings
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+
+# ==========================================
+# Test & Coverage
+# ==========================================
+coverage/
+.nyc_output/
+.cache/
