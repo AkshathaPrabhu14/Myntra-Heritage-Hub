@@ -88,23 +88,27 @@ const Header = () => {
         <Link to="/" className="flex items-center space-x-2 flex-shrink-0 mr-2 md:mr-4">
           <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="myntraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#f13c6b" />
-                <stop offset="30%" stopColor="#ff3f6c" />
-                <stop offset="70%" stopColor="#ff6f3c" />
-                <stop offset="100%" stopColor="#ff9a3c" />
+              <linearGradient id="hdrMyntraPink" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#E71D73"/>
+                <stop offset="100%" stopColor="#FF3F6C"/>
+              </linearGradient>
+              <linearGradient id="hdrMyntraOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FF3F6C"/>
+                <stop offset="100%" stopColor="#FF6F3C"/>
+              </linearGradient>
+              <linearGradient id="hdrMyntraYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FF6F3C"/>
+                <stop offset="100%" stop-color="#FFB400"/>
               </linearGradient>
             </defs>
-            <path
-              d="M15 80V20L45 55L55 55L85 20V80H70V42L52 64H48L30 42V80H15Z"
-              fill="url(#myntraGrad)"
-              stroke="#fff"
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
+            <g transform="translate(5, 5)">
+              <path d="M 12 80 L 12 35 C 12 18 25 8 40 8 C 55 8 62 20 62 35 L 62 55 L 48 55 L 48 35 C 48 26 43 20 40 20 C 36 20 27 26 27 35 L 27 80 Z" fill="url(#hdrMyntraPink)"/>
+              <path d="M 38 80 L 38 50 C 38 36 47 28 54 28 C 61 28 70 36 70 50 L 70 80 L 57 80 L 57 50 C 57 44 55 41 54 41 C 53 41 51 44 51 50 L 51 80 Z" fill="url(#hdrMyntraOrange)"/>
+              <path d="M 48 80 L 48 35 C 48 20 55 8 70 8 C 85 8 98 18 98 35 L 98 80 L 83 80 L 83 35 C 83 26 74 20 70 20 C 66 20 62 26 62 35 L 62 80 Z" fill="url(#hdrMyntraYellow)"/>
+            </g>
           </svg>
           <span className="hidden sm:inline-block font-black text-lg md:text-xl tracking-tighter text-myntra-dark">
-            MYNTRA<span className="text-myntra-pink text-[10px] uppercase font-bold tracking-widest block -mt-2">Heritage</span>
+            MYNTRA<span className="text-myntra-pink text-[10px] uppercase font-bold tracking-widest block -mt-2">Heritage-Hub</span>
           </span>
         </Link>
 
