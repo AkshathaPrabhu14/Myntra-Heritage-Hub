@@ -482,10 +482,24 @@ app.use('/api/upload', uploadRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/passport', passportRoutes);
 
+// Root welcome endpoint
+app.get('/', (req, res) => {
+  res.json({
+    success: true,
+    message: 'Myntra Heritage Hub API Server is running successfully 🚀',
+    endpoints: {
+      health: '/api/health',
+      products: '/api/products',
+      auth: '/api/auth'
+    }
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({ success: true, message: 'Server backend is healthy and running' });
 });
+
 
 // Error routing fallback
 app.use((err, req, res, next) => {
